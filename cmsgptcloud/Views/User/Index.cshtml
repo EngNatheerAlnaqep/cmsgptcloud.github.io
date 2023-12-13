@@ -1,0 +1,75 @@
+﻿@model IEnumerable<cmsgptcloud.Models.tb_user>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>قائمة المستخدمين</h2>
+<p>
+    @Html.ActionLink("اضافة مستخدم", "Create")
+</p>
+<p style="text-align:left">
+  
+
+    <br />  عدد المستخدمين 
+    @Model.Count()
+</p>
+<style>
+    th,td{
+        text-align:center;
+    }
+</style>
+<table class="table" style="text-align:right">
+    <tr>
+      
+        <th>
+            @Html.DisplayName("الاسم")
+        </th>
+        <th>
+            @Html.DisplayName("كلمة السر")
+        </th>
+        <th>
+            @Html.DisplayName("الايميل")
+        </th>
+        <th>
+            @Html.DisplayName("رقم الجوال")
+        </th>
+        <th>
+        @Html.DisplayName("العنوان")
+        </th>
+        <th>
+            @Html.DisplayName("التخصص")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+   
+    <td>
+        @Html.DisplayFor(modelItem => item.username)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.userpassword)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.useremail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.userphone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.useraddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.usersub)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.userid }) |
+        @Html.ActionLink("Details", "Details", new { id = item.userid }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.userid })
+    </td>
+</tr>
+}
+
+</table>

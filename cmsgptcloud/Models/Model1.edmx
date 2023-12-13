@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="smsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="compute_node">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="database" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="instance" Type="varchar" MaxLength="16" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="index" Type="int" Nullable="false" />
+          <Property Name="driveletter" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="configuration_properties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="key" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="key" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="4000" />
+          <Property Name="default" Type="nvarchar" MaxLength="4000" />
+          <Property Name="protection" Type="smallint" Nullable="false" />
+          <Property Name="access" Type="smallint" Nullable="false" />
+          <Property Name="datatype" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="database_file">
+          <Key>
+            <PropertyRef Name="filegroup_id" />
+            <PropertyRef Name="sequence" />
+          </Key>
+          <Property Name="filegroup_id" Type="int" Nullable="false" />
+          <Property Name="sequence" Type="int" Nullable="false" />
+          <Property Name="root_path" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="is_add_from_alter" Type="bit" Nullable="false" />
+          <Property Name="percent_allocated_space" Type="float" />
+        </EntityType>
+        <EntityType Name="distributions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="index" Type="int" Nullable="false" />
+          <Property Name="numa_port" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="filegroups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="distribution_id" Type="int" />
+          <Property Name="min_filesize" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="max_filesize" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="default_filegrowth" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="is_shell" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nodes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="type" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pdw_sp_configure">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="minimum" Type="int" />
+          <Property Name="maximum" Type="int" />
+          <Property Name="config_value" Type="int" />
+          <Property Name="run_value" Type="int" />
+        </EntityType>
+        <EntityType Name="quition1">
+          <Key>
+            <PropertyRef Name="QId" />
+          </Key>
+          <Property Name="QId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mname" Type="varchar(max)" />
+          <Property Name="Qquition" Type="varchar(max)" />
+          <Property Name="Qanuser" Type="varchar(max)" />
+          <Property Name="Qcode" Type="varchar(max)" />
+          <Property Name="Qnote" Type="varchar(max)" />
+          <Property Name="Filename" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="quitions">
+          <Key>
+            <PropertyRef Name="QId" />
+          </Key>
+          <Property Name="QId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mname" Type="varchar(max)" />
+          <Property Name="Qquition" Type="varchar(max)" />
+          <Property Name="Qanuser" Type="varchar(max)" />
+          <Property Name="Qcode" Type="varchar(max)" />
+          <Property Name="Qnote" Type="varchar(max)" />
+          <Property Name="Filename" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tb_order">
+          <Key>
+            <PropertyRef Name="orid" />
+          </Key>
+          <Property Name="orid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="120" />
+          <Property Name="ormesg" Type="varchar(max)" />
+          <Property Name="orfile" Type="varchar(max)" />
+          <Property Name="orpictire" Type="varchar(max)" />
+          <Property Name="ortime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="tb_quition">
+          <Key>
+            <PropertyRef Name="qid" />
+          </Key>
+          <Property Name="qid" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qname" Type="varchar(max)" />
+          <Property Name="qanser" Type="varchar(max)" />
+          <Property Name="qcode" Type="varchar(max)" />
+          <Property Name="qtrans" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tb_user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="200" />
+          <Property Name="userpassword" Type="varchar(max)" />
+          <Property Name="useremail" Type="varchar(max)" />
+          <Property Name="useraddress" Type="varchar(max)" />
+          <Property Name="userphone" Type="varchar(max)" />
+          <Property Name="usersub" Type="varchar(max)" />
+          <Property Name="state" Type="bit" />
+        </EntityType>
+        <EntityType Name="version_history">
+          <Key>
+            <PropertyRef Name="version" />
+          </Key>
+          <Property Name="version" Type="int" Nullable="false" />
+          <Property Name="date_installed" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="smsModelStoreContainer">
+          <EntitySet Name="compute_node" EntityType="Self.compute_node" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="configuration_properties" EntityType="Self.configuration_properties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="database_file" EntityType="Self.database_file" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="distributions" EntityType="Self.distributions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="filegroups" EntityType="Self.filegroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nodes" EntityType="Self.nodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pdw_sp_configure" EntityType="Self.pdw_sp_configure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quition1" EntityType="Self.quition1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quitions" EntityType="Self.quitions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_order" EntityType="Self.tb_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_quition" EntityType="Self.tb_quition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user" EntityType="Self.tb_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="version_history" EntityType="Self.version_history" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="smsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="compute_node">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="database" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="instance" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="index" Type="Int32" Nullable="false" />
+          <Property Name="driveletter" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="configuration_properties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="key" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="key" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="default" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="protection" Type="Int16" Nullable="false" />
+          <Property Name="access" Type="Int16" Nullable="false" />
+          <Property Name="datatype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="database_file">
+          <Key>
+            <PropertyRef Name="filegroup_id" />
+            <PropertyRef Name="sequence" />
+          </Key>
+          <Property Name="filegroup_id" Type="Int32" Nullable="false" />
+          <Property Name="sequence" Type="Int32" Nullable="false" />
+          <Property Name="root_path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="is_add_from_alter" Type="Boolean" Nullable="false" />
+          <Property Name="percent_allocated_space" Type="Double" />
+        </EntityType>
+        <EntityType Name="distributions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="index" Type="Int32" Nullable="false" />
+          <Property Name="numa_port" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="filegroups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="distribution_id" Type="Int32" />
+          <Property Name="min_filesize" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="max_filesize" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="default_filegrowth" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="is_shell" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nodes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pdw_sp_configure">
+          <Key>
+            <PropertyRef Name="name" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="minimum" Type="Int32" />
+          <Property Name="maximum" Type="Int32" />
+          <Property Name="config_value" Type="Int32" />
+          <Property Name="run_value" Type="Int32" />
+        </EntityType>
+        <EntityType Name="quition1">
+          <Key>
+            <PropertyRef Name="QId" />
+          </Key>
+          <Property Name="QId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qquition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qanuser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qnote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Filename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="quitions">
+          <Key>
+            <PropertyRef Name="QId" />
+          </Key>
+          <Property Name="QId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qquition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qanuser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Qnote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Filename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tb_order">
+          <Key>
+            <PropertyRef Name="orid" />
+          </Key>
+          <Property Name="orid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="ormesg" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="orfile" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="orpictire" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ortime" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="tb_quition">
+          <Key>
+            <PropertyRef Name="qid" />
+          </Key>
+          <Property Name="qid" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="qanser" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="qcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="qtrans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_user">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="userpassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="useremail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="useraddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userphone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="usersub" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="version_history">
+          <Key>
+            <PropertyRef Name="version" />
+          </Key>
+          <Property Name="version" Type="Int32" Nullable="false" />
+          <Property Name="date_installed" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="smsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="compute_node" EntityType="Self.compute_node" />
+          <EntitySet Name="configuration_properties" EntityType="Self.configuration_properties" />
+          <EntitySet Name="database_file" EntityType="Self.database_file" />
+          <EntitySet Name="distributions" EntityType="Self.distributions" />
+          <EntitySet Name="filegroups" EntityType="Self.filegroups" />
+          <EntitySet Name="nodes" EntityType="Self.nodes" />
+          <EntitySet Name="pdw_sp_configure" EntityType="Self.pdw_sp_configure" />
+          <EntitySet Name="quition1" EntityType="Self.quition1" />
+          <EntitySet Name="quitions" EntityType="Self.quitions" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tb_order" EntityType="Self.tb_order" />
+          <EntitySet Name="tb_quition" EntityType="Self.tb_quition" />
+          <EntitySet Name="tb_user" EntityType="Self.tb_user" />
+          <EntitySet Name="version_history" EntityType="Self.version_history" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="smsModelStoreContainer" CdmEntityContainer="smsEntities">
+          <EntitySetMapping Name="compute_node">
+            <EntityTypeMapping TypeName="smsModel.compute_node">
+              <MappingFragment StoreEntitySet="compute_node">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="database" ColumnName="database" />
+                <ScalarProperty Name="instance" ColumnName="instance" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="index" ColumnName="index" />
+                <ScalarProperty Name="driveletter" ColumnName="driveletter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="configuration_properties">
+            <EntityTypeMapping TypeName="smsModel.configuration_properties">
+              <MappingFragment StoreEntitySet="configuration_properties">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="key" ColumnName="key" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="default" ColumnName="default" />
+                <ScalarProperty Name="protection" ColumnName="protection" />
+                <ScalarProperty Name="access" ColumnName="access" />
+                <ScalarProperty Name="datatype" ColumnName="datatype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="database_file">
+            <EntityTypeMapping TypeName="smsModel.database_file">
+              <MappingFragment StoreEntitySet="database_file">
+                <ScalarProperty Name="filegroup_id" ColumnName="filegroup_id" />
+                <ScalarProperty Name="sequence" ColumnName="sequence" />
+                <ScalarProperty Name="root_path" ColumnName="root_path" />
+                <ScalarProperty Name="is_add_from_alter" ColumnName="is_add_from_alter" />
+                <ScalarProperty Name="percent_allocated_space" ColumnName="percent_allocated_space" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="distributions">
+            <EntityTypeMapping TypeName="smsModel.distributions">
+              <MappingFragment StoreEntitySet="distributions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="index" ColumnName="index" />
+                <ScalarProperty Name="numa_port" ColumnName="numa_port" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="filegroups">
+            <EntityTypeMapping TypeName="smsModel.filegroups">
+              <MappingFragment StoreEntitySet="filegroups">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="distribution_id" ColumnName="distribution_id" />
+                <ScalarProperty Name="min_filesize" ColumnName="min_filesize" />
+                <ScalarProperty Name="max_filesize" ColumnName="max_filesize" />
+                <ScalarProperty Name="default_filegrowth" ColumnName="default_filegrowth" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="is_shell" ColumnName="is_shell" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nodes">
+            <EntityTypeMapping TypeName="smsModel.nodes">
+              <MappingFragment StoreEntitySet="nodes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="active" ColumnName="active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pdw_sp_configure">
+            <EntityTypeMapping TypeName="smsModel.pdw_sp_configure">
+              <MappingFragment StoreEntitySet="pdw_sp_configure">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="minimum" ColumnName="minimum" />
+                <ScalarProperty Name="maximum" ColumnName="maximum" />
+                <ScalarProperty Name="config_value" ColumnName="config_value" />
+                <ScalarProperty Name="run_value" ColumnName="run_value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quition1">
+            <EntityTypeMapping TypeName="smsModel.quition1">
+              <MappingFragment StoreEntitySet="quition1">
+                <ScalarProperty Name="QId" ColumnName="QId" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="Qquition" ColumnName="Qquition" />
+                <ScalarProperty Name="Qanuser" ColumnName="Qanuser" />
+                <ScalarProperty Name="Qcode" ColumnName="Qcode" />
+                <ScalarProperty Name="Qnote" ColumnName="Qnote" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quitions">
+            <EntityTypeMapping TypeName="smsModel.quitions">
+              <MappingFragment StoreEntitySet="quitions">
+                <ScalarProperty Name="QId" ColumnName="QId" />
+                <ScalarProperty Name="mname" ColumnName="mname" />
+                <ScalarProperty Name="Qquition" ColumnName="Qquition" />
+                <ScalarProperty Name="Qanuser" ColumnName="Qanuser" />
+                <ScalarProperty Name="Qcode" ColumnName="Qcode" />
+                <ScalarProperty Name="Qnote" ColumnName="Qnote" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="smsModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_order">
+            <EntityTypeMapping TypeName="smsModel.tb_order">
+              <MappingFragment StoreEntitySet="tb_order">
+                <ScalarProperty Name="orid" ColumnName="orid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="ormesg" ColumnName="ormesg" />
+                <ScalarProperty Name="orfile" ColumnName="orfile" />
+                <ScalarProperty Name="orpictire" ColumnName="orpictire" />
+                <ScalarProperty Name="ortime" ColumnName="ortime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_quition">
+            <EntityTypeMapping TypeName="smsModel.tb_quition">
+              <MappingFragment StoreEntitySet="tb_quition">
+                <ScalarProperty Name="qid" ColumnName="qid" />
+                <ScalarProperty Name="qname" ColumnName="qname" />
+                <ScalarProperty Name="qanser" ColumnName="qanser" />
+                <ScalarProperty Name="qcode" ColumnName="qcode" />
+                <ScalarProperty Name="qtrans" ColumnName="qtrans" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user">
+            <EntityTypeMapping TypeName="smsModel.tb_user">
+              <MappingFragment StoreEntitySet="tb_user">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userpassword" ColumnName="userpassword" />
+                <ScalarProperty Name="useremail" ColumnName="useremail" />
+                <ScalarProperty Name="useraddress" ColumnName="useraddress" />
+                <ScalarProperty Name="userphone" ColumnName="userphone" />
+                <ScalarProperty Name="usersub" ColumnName="usersub" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="version_history">
+            <EntityTypeMapping TypeName="smsModel.version_history">
+              <MappingFragment StoreEntitySet="version_history">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="date_installed" ColumnName="date_installed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

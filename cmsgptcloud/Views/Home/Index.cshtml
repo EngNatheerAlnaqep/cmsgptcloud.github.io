@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <style>
+        .home img {
+            position: relative;
+        }
+    </style>
+    @{
+
+        if (Session["addorder"] == "yes")
+        {
+            var b = ViewData["addorder"];
+           <p id="b"></p>
+            //ViewData["addorder"] = "no";
+
+
+        }
+
+    }
+    <div class="continer">
+
+       
+        <div class="social-icons">
+            <img src="~/images/facebook.png" title="Facebook">
+            <img src="~/images/twitter.png" title="twitter">
+            <img src="~/images/instagram.png" title="instegram">
+        </div>
+    </div>
+
+    <div class="home">
+
+
+        <img src="~/images/course-2.jpg">
+        <div class="name">
+            <h1>HELPGP</h1>
+         
+        
+           <a href="~/Views/Company/index.cshtml"> homwe<button></button></a>
+        </div>
+
+    </div>
+
+   
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $("#b").show(function () {
+            toastr.info("تم استقبال طلبك " ,"الادارة");
+
+        });
+              
+           
+       
+    </script>
+}

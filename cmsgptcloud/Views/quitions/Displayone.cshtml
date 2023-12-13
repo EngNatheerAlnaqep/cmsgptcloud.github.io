@@ -1,0 +1,181 @@
+﻿@model cmsgptcloud.Models.quition
+
+@{
+    ViewBag.Title = "View";
+}
+
+
+
+    <div>]
+        <style>
+        * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        background-color: #e7e9eb;
+        }
+
+        .text {
+        padding: 39px;
+        direction: rtl;
+        overflow: auto;
+        }
+
+        .continer {
+        margin-left: 0;
+        margin-right: 0;
+        background-color: rgb(251, 251, 251);
+        padding-top: 14px;
+        }
+
+        h1 {
+        float: right;
+        padding: 7px;
+        direction: rtl;
+        text-decoration: dotted;
+        color: rgb(226, 226, 171);
+        padding-right: 79px;
+        }
+
+        .code {
+        margin: 8px;
+        padding: 22px;
+        overflow: auto;
+        padding: 20px;
+        height: 600px;
+        background-color: rgba(255, 255, 255, 0.516);
+        border-radius: 20px;
+        border: 10px solid rgba(49, 83, 72, 0.275);
+        }
+
+        .code button {
+        border: 0;
+        border-radius: 5px;
+        float: left;
+        width: 100px;
+        height: 30px;
+        }
+
+        button:hover {
+        background-color: #829db87e;
+        }
+
+        p {
+        line-height: 30px;
+        }
+
+        .quition {
+        margin: 10px;
+        padding: 21px;
+        direction: rtl;
+        border: 10px solid #c4c6c8;
+        color: rgba(16, 17, 16, 0.73);
+        border-radius: 20px;
+        overflow: auto;
+        }
+
+        strong {
+        color: rgb(6, 6, 6);
+        }
+
+        .head {
+        background-color: #fff;
+        height: auto;
+        }
+
+        .infoCode {
+        display: inline-block;
+        width: 100%;
+        padding: 20px;
+        padding-bottom: 0px;
+        }
+
+        .button {
+        width: 100%;
+        z-index: 5;
+        padding-top: 12px;
+        margin-left: 125px;
+        }
+
+        .button .right, .button .left {
+        position: relative;
+        }
+
+        .right {
+        float: right;
+        }
+
+        .button .left {
+        float: left;
+        }
+        </style>
+        <hr />
+        <dl class="dl-horizontal">
+            
+            <div class="button">
+                <button class="btn btn-default left" type="submit">
+                    @Html.ActionLink("رجوع", "Display")
+               <button class="btn btn-default right" type="submit">
+                  @Html.ActionLink("تحميل", "Downloadfile",new { Filename = Model.Filename})
+
+</div>
+        <div class="nav ">
+
+        </div>
+
+        <!---<div class="continer">
+        <div class="head ">
+            <a href="help_home.html"><button> الصفحة الرئيسية</button></a>
+        </div>
+    </div>-->
+
+        <div class="continer">
+
+
+            <div class="quition ">
+                <strong> السوال      ::</strong><br><br>
+                <p>@Html.DisplayFor(model => model.Qquition) </p> <br>
+
+
+
+
+            </div>
+            <div class="text ">
+                <strong> الاجابة     ::</strong><br><br>
+                <h3> نضام المبيعات 'convennt System':</h3><br>
+
+
+
+            </div>
+            <div class="infoCode">
+                <h1>  الكود ::</h1>
+
+            </div>
+            <div class="code">
+                <button> نسخ الكود</button>
+                <br />
+                <code>
+                    <pre>
+
+
+        </pre>
+                </code>
+            </div>
+
+
+
+        </div>
+        <b
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+
+        </div>
+    }
+</div>

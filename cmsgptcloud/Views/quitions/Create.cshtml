@@ -1,0 +1,134 @@
+﻿@model cmsgptcloud.Models.quition
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2> اضافة الاسئلة</h2>
+<style>
+    body {
+        direction: rtl;
+        text-align:right;
+    }
+
+    .form-control {
+        height: 237px;
+    }
+
+    .col-md-2, .col-md-10, .control-label {
+        
+        text-align:right;
+    }
+    label{
+        float:right;
+        display:normal;
+    }
+
+    select, input, textarea {
+        max-width: none;
+        text-anchor: start;
+    }
+
+    .form-horizontal .control-label {
+        padding-top: 0px;
+    }
+
+    button, html input[type="button"], input[type="reset"], input[type="submit"],, input[type="file"] {
+        width: 100px;
+        margin-right: 337px
+    }
+
+    .control {
+        height: 38px;
+        text-align:right;
+    }
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5,
+    .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10,
+    .col-md-11, .col-md-12 {
+        float: none;
+        text-align:right;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+   
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">اسم المادة</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.mname, new { htmlAttributes = new { @class = "control" } })
+            @Html.ValidationMessageFor(model => model.mname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">السؤال</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Qquition, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Qquition, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">الاجابة</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Qanuser, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Qanuser, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">ملف الاجابة</label>
+        <div class="col-md-10">
+            <input type="file" id="imgfile" name="fileanser" class="control" />
+            @Html.ValidationMessageFor(model => model.Qanuser, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">ملف السؤال</label>
+        <div class="col-md-10">
+            <input type="file" id="imgfile" name="filequition" class="control" />
+            @Html.ValidationMessageFor(model => model.Qanuser, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2"> صورة الكود</label>
+        <div class="col-md-10">
+            <input type="file" id="imgfile" name="imgcode" class="control" />
+            @Html.ValidationMessageFor(model => model.Qcode, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">التفاصيل </label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Qnote, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Qnote, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input id="b" type="submit" value="اضافة" class="btn btn-default" />
+
+
+        </div>
+    </div>
+</div>
+}
+    <input  type="button" value="الرجوع الئ القائمة الرئيسيه" class="btn btn-default" />
+
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval");
+
+
+    }

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<cmsgptcloud.Models.quitions>
+
+@{
+    ViewBag.Title = "View";
+}
+
+
+<style>
+    .quition {
+        background-color: #ffffff;
+        margin: 30px;
+        border-style: solid;
+        border-color: #8fc2e0;
+    }
+    .form-control {
+        display: inline-block;
+        width: 58%;
+        overflow: hidden;
+    }
+   .btn{
+       height:auto;
+       width:auto;
+   }
+    .quition {
+        text-align:right;
+    }
+</style>
+ 
+<div>
+    @using (Html.BeginForm("Display", "quitions", FormMethod.Get))
+    {
+       // @Html.TextBox("Search")<input type="submit" value="بحث" />
+
+
+        <input class="form-control me-2" type="search" placeholder="اكتب هنا " name="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">بحث</button>
+        <p>  مجموع  الاسئلة:  @Model.Count().ToString()   </p>
+    }
+</div>
+@if (Model.Count() == 0)
+{
+<div class="quition">
+    <p> لا يوجد اسئلة</p>
+</div>
+}
+else
+{
+    foreach (var item in Model)
+    {
+<div class="quition">
+    <button class="btn btn-outline-success" type="submit">  @Html.ActionLink("عرض", "Displayone", new { id = item.QId })</button>
+    <h3> @Html.DisplayFor(modelItem => item.Qquition)</h3>
+
+    <p>  @Html.DisplayFor(modelItem => item.Qanuser)</p>
+
+
+</div>
+
+
+
+    }
+}
+  

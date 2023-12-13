@@ -1,0 +1,61 @@
+﻿@model cmsgptcloud.Models.quition
+
+@{
+    ViewBag.Title = "الحذف";
+}
+<style>
+    body{
+        direction:rtl;
+    }
+    .dl-horizontal dt {
+        float: right;
+    }
+</style>
+<h2>Delete</h2>
+
+<h3>هل انت متاكد من حذف هذه البيانات ؟</h3>
+<div>
+    <h4>بيانات السؤال</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            الرقم
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QId)
+        </dd>
+
+        <dt>
+            اسم المادة
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mname)
+        </dd>
+
+        <dt>
+            السؤال
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qquition)
+        </dd>
+        <dt>
+           الاجابة
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qanuser)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            @Html.ActionLink("العودة الئ القائمة", "Index")
+        </div>
+    }
+</div>

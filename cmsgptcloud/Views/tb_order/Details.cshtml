@@ -1,0 +1,58 @@
+﻿@model cmsgptcloud.Models.tb_order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tb_order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ormesg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ormesg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orfile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orfile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orpictire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orpictire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ortime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ortime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

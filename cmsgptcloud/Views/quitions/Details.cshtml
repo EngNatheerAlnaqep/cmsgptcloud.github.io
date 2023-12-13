@@ -1,0 +1,48 @@
+﻿@model cmsgptcloud.Models.quition
+
+@{
+    ViewBag.Title = "Details";
+}
+    <style>
+    body{
+        direction:rtl;
+    }
+    </style>
+<h2>Details</h2>
+
+<div>
+    <h4>quition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("اسم المادة")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mname)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("السؤال")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qquition)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("الاجابة")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qanuser)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.QId }) |
+    @Html.ActionLink("العودة الئ القائمة", "Index")
+</p>

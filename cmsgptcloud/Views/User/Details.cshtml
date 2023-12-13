@@ -1,0 +1,66 @@
+﻿@model cmsgptcloud.Models.tb_user
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tb_user</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userpassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uaeremail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uaeremail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.useraddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.useraddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userphone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usersub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usersub)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.userid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

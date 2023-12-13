@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "add quition";
+}
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <style>
+      .container{
+          direction:rtl;
+          padding-right:103px;
+
+      }
+      .center{
+          margin-right:auto;
+         font-size:larger;
+      }
+        input, select, textarea {
+            max-width: 872px !important;
+        }
+        .center input , center select, center textarea{
+            max-width:220px !important;
+        }
+        textarea.form-control {
+            height: 200px;
+          
+        }
+        label {
+            display: inline-block;
+            max-width: 100%;
+            margin: 15px;
+            font-weight: 700;
+            margin-top: 24px;
+            right: auto;
+            margin-right: 414px;
+            font-size: 20px;
+            font-style: unset
+        }
+        .center label {
+            margin: 12px;
+            margin-right: 11px;
+        }
+        .code textarea {
+            text-align:left;
+        }
+       
+    </style>
+    <div class="container">
+        <div class="mb-3 center">
+            <label for="exampleFormControlInput1" class="form-label">اسم المادة</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Example:java" name="txtname">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">االسؤال</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="اكتب برنامج يقوم ...." rows="3" name="txtquition"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">الاجابة</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="التوضيح مع الشرح" rows="3" name="txtanser"></textarea>
+        </div>
+        <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label">ملف الاجابة</label>
+            <input type="file" class="form-control" id="exampleFormControlTextarea1" placeholder="using system" rows="3" name="fileanser"></input>
+        </div>
+        <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label">ملف السؤال</label>
+            <input type="file" class="form-control" id="exampleFormControlTextarea1" placeholder="using system" rows="3" name="filequition"></input>
+        </div>
+        <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label">الكود</label>
+            <input type="file" class="form-control" id="exampleFormControlTextarea1" placeholder="using system" rows="3" name="txtcode"></input>
+        </div>
+    </div>
+</body>
+</html>

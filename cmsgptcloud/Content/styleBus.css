@@ -1,0 +1,241 @@
+﻿body {
+    background-color: rgb(58 57 48 / 9%);
+    padding-top: 32px;
+    text-align: center;
+}
+
+* {
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.group {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.photo {
+    width: 44%;
+    height: 304px;
+    margin: 20px;
+    display: inline-block;
+}
+
+    .photo img {
+        width: 100%;
+        height: 91%;
+    }
+
+    .photo p {
+        margin-right: 52%;
+        font-size: larger;
+    }
+
+.heder {
+    width: 96%;
+    height: 177px;
+    background-color: #cccccc;
+    margin: 20px;
+    position: relative;
+}
+
+    .heder .provile {
+        width: 181px;
+        height: 100%;
+        border: 2px wheat solid;
+        border-radius: 100px;
+        background-color: darkgrey;
+        float: left;
+        position: absolute;
+        right: 11%;
+       
+        background-image: url("images/1.png");
+        background-attachment: local;
+        background-repeat: no-repeat;
+        background-attachment: local;
+        background-size: cover;
+    }
+
+    .heder .name {
+        width: auto;
+        float: right;
+        position: absolute;
+        left: 13%;
+        top: 79px;
+        padding: 0;
+    }
+
+.clear {
+    clear: both;
+}
+
+.heder .provile img {
+    display: flow-root;
+}
+
+.heder .name h1 {
+   
+    margin: 0;
+    font-style: italic;
+    text-transform: capitalize;
+    border-bottom: dotted;
+    color: lightslategrey
+}
+
+.bcolor {
+    background-color: aliceblue;
+    direction: rtl;
+}
+
+h3, p  {
+    display: initial;
+}
+.text,.text1,.text3{
+display:inline-block;
+}
+.info {
+    width: 38%;
+    display: inline-block;
+    padding-bottom: 12px;
+  
+}
+
+    .info p {
+        margin-right: 20px;
+    }
+
+.group1 {
+    background-color: aliceblue;
+}
+
+.head {
+    width: 100%;
+    border-radius: 50px;
+    height: 50px;
+    margin: 0;
+}
+
+.sqear {
+    width: 48px;
+    height: 49px;
+    /* background-color: aliceblue; */
+    position: absolute;
+    /* right: 20px; */
+    right: 16%;
+    border-radius: 89px;
+    text-align: center;
+    padding-top: 1px;
+    /* font-size: 39px; */
+    color: white;
+}
+
+element.style {
+}
+
+.fa {
+    font-size: -webkit-xxx-large;
+}
+
+.profile {
+    margin-right: 378px;
+}
+
+    .profile p {
+        margin-top: 3px;
+        font-size: 31px;
+        color: black;
+    }
+
+.group1 .text, text3 {
+    margin: 40px;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin-right: 175px;
+    padding-left: 82px;
+   
+}
+
+
+li {
+    font-size: 22px;
+}
+
+.demo li {
+    float: right;
+    width: 50%;
+    display: inline-block;
+}
+
+
+.text1 {
+    margin: 10px;
+    margin-right: 40px;
+}
+
+.text3 {
+    margin-top: 10px;
+    margin-right: 40px;
+}
+
+.top {
+    margin: 0;
+}
+
+.adun, .adun2 {
+    color: rgb(119, 186, 164);
+}
+
+.adun2 {
+   
+    float: left;
+    margin-right: 120px;
+}
+
+/**i {
+            margin-right: 208px;
+            position: absolute;
+            display: block;
+        }*/
+
+.skills {
+    width: 50%;
+    position: relative;
+    float: right;
+}
+
+    .skills .right {
+        float: right;
+    }
+
+    .skills .left {
+        float: left;
+    }
+
+.an span i, .bn span i {
+    font-size: inherit;
+    float: left;
+    color: #36c2d7;
+}
+
+.bn span i {
+    color: forestgreen;
+}
+
+strong {
+    font-size: 19px;
+}
+
+.text i {
+    font-size: inherit;
+    color: forestgreen;
+}
+
+span .fa {
+    font-size: 25px;
+    color: #2aa583;
+}

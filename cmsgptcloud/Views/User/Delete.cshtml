@@ -1,0 +1,72 @@
+﻿@model cmsgptcloud.Models.tb_user
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tb_user</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userpassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uaeremail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uaeremail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.useraddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.useraddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userphone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usersub)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usersub)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

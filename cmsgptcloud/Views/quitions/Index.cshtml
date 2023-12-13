@@ -1,0 +1,68 @@
+﻿@model IEnumerable<cmsgptcloud.Models.quition>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    body{
+        direction:rtl;
+    }
+    .table
+    {
+      
+    }
+    th ,td{
+        text-align:center;
+    }
+</style>
+<h2>قائمة الاسئلة</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("display", "Display")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("الرقم")
+        </th>
+        <th>
+            @Html.DisplayName("اسم المادة")
+        </th>
+        <th>
+            @Html.DisplayName("السؤال")
+        </th>
+        <th>
+            @Html.DisplayName("الاجابة")
+        </th>
+
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qquition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qanuser)
+            </td>
+
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = item.QId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.QId }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.QId })
+
+            </td>
+        </tr>
+
+    }
+  
+</table>

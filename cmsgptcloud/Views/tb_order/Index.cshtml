@@ -1,0 +1,70 @@
+﻿@model IEnumerable<cmsgptcloud.Models.tb_order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    * {
+        direction: rtl;
+    }
+
+    h2, th, td {
+        text-align: center;
+    }
+</style>
+
+<h2>طلبات المستحدمين</h2>
+
+<p>
+     : مجموع الطلبات
+@Model.Count()
+</p>
+<table class="table">
+    <tr>
+        
+       
+        <th>
+            @Html.DisplayName("الرسالة")
+        </th>
+        <th>
+            @Html.DisplayName("الملف")
+        </th>
+        <th>
+            @Html.DisplayName("الصورة")
+        </th>
+        <th>
+            @Html.DisplayName("وقت التسليم")
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.ormesg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orfile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orpictire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ortime)
+            </td>
+           
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.orid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.orid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.orid })
+            </td>
+        </tr>
+    }
+
+</table>

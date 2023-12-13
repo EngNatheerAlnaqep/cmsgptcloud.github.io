@@ -1,0 +1,185 @@
+﻿
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WE-DO</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+<body>
+
+    <section>
+
+        <a href="login.html" translate="no">
+            <button style="background-color:#41cad14f ;float: left; width: auto;
+        padding:10px;
+    ">
+                ارسال طلبك للفرق
+            </button>
+        </a>
+        <button id="nv" class="btnchose"> الخيارات</button>
+    </section>
+    <p class="name">
+        @if (Request.Cookies["user"] != null)
+        {
+            @Request.Cookies["user"].Value;
+
+
+
+
+
+
+
+        }
+
+    </p>
+    <p class="img-circle">
+
+    </p>
+    @if (Request.Cookies["user"] == null)
+    {
+        using (Html.BeginForm("login", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            <p class="p"> <button type="submit" class=" blogin"> تسجيل الدخول  </button> </p>
+        }
+    }
+    else
+    {
+
+
+        using (Html.BeginForm("logout", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            <p class="p"> <button type="submit" class=" blogin"> تسجيل الخروج  </button> </p>
+        }
+    }
+    <div class="container">
+
+        <nav class="header" id="head">
+
+            <ul>
+
+                @if (Request.Cookies["state"] != null)
+                {
+                    if (Request.Cookies["state"].Value == "False")
+                    {
+                        <li id="conup">
+                            التحكم
+                        </li>
+                    }
+                }
+                <li>@Html.ActionLink("حول", "About")</a></li>
+                @if (Request.Cookies["user"] == null)
+                {
+                    <a class="navbar-link" href="/User/login">
+                        <li>
+
+                            طلب الحل من الفريق
+
+                        </li>
+                    </a>
+                }
+                else
+                {
+                    <a class="navbar-link" href="/tb_order/Create">
+                        <li>
+
+                            طلب الحل من الفريق
+
+                        </li>
+                    </a>
+                }
+                <a class="link" href="/quitions/Display"> <li> الاسئلة </li></a>
+                <a class="navbar-link" href="/Home/Index">  <li>الصفحة الرئيسية </li></a>
+            </ul>
+        </nav>
+
+        <nav id="control">
+            <a class="nav-link" href="/User/Index">  <div><h1> المستخدمين</h1></div></a>
+            <a href="/tb_order/Index"><div><h1>  الطلبات        </h1></div></a>
+            <a href="/quitions/Index">   <div><h1>الاسئله</h1></div></a>
+
+        </nav>
+        <!--<nav id="p">
+            <div><a class="nav-link" href="/Home/Javaproject"><h1> اللغة الانجليزية</h1></a></div>
+            <div><h1> اللغة الانجليزية</h1></div>
+            <div><h1> اللغة الانجليزية</h1></div>
+            <div><h1> اللغة الانجليزية</h1></div>
+            <div><h1> اللغة الانجليزية</h1></div>
+            <div><h1> اللغة الانجليزية</h1></div>
+
+        </nav>-->
+
+
+
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - PRO-TECH</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/toastr.js"></script>
+    @RenderSection("scripts", required: false)
+    <script>
+
+        var ms = document.getElementById('head');
+        var msb = document.getElementById('nv');
+        ms.style.height = "0";
+        msb.onclick = function () {
+            if (ms.style.height === "0px") {
+                ms.style.height = "200px";
+            } else {
+                ms.style.height = 0;
+
+
+            }
+
+        }
+
+        var v = document.getElementById('control');
+        v.style.height = 0;
+        var con;
+
+        if ($("conup")) {
+            con = document.getElementById('conup');
+            v.style.height = "0";
+            con.onclick = function () {
+                toastr.info("sucsses", "toast");
+
+                /* if (b.style.height > "0") {
+                     b.style.height = "0px"
+             }*/
+                if (v.style.height === "0px") {
+
+                    v.style.height = "191px";
+                }
+
+                else {
+                    v.style.height = 0;
+                }
+            }
+
+
+        }
+
+
+    </script>
+</body>
+</html>
